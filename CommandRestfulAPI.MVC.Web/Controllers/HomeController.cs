@@ -23,6 +23,11 @@ namespace CommandRestfulAPI.MVC.Web.Controllers
             _logger = logger;
         }
 
+        /// <summary>
+        /// Equivalent to GET call to retrieve all commands
+        /// from table
+        /// </summary>
+        /// <returns></returns>
         public async Task<IActionResult> Index()
         {
             List<Command> commandList = new List<Command>();
