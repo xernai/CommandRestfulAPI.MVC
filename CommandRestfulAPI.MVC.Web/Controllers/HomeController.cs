@@ -1,4 +1,4 @@
-﻿using CommandRestfulAPI.MVC.Models;
+﻿using CommandRestfulAPI.MVC.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
@@ -7,7 +7,7 @@ using System.Diagnostics;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace CommandRestfulAPI.MVC.Controllers
+namespace CommandRestfulAPI.MVC.Web.Controllers
 {
     /// <summary>
     /// Controller to connect to API

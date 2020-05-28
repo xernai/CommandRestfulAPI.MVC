@@ -1,6 +1,4 @@
-using System;
-
-namespace CommandRestfulAPI.MVC.Models
+namespace CommandRestfulAPI.MVC.Web.Models
 {
     public class ErrorViewModel
     {
