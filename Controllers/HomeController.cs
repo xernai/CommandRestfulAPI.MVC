@@ -15,6 +15,8 @@ namespace CommandRestfulAPI.MVC.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        //private const string URL = "https://localhost:44303/api/commands/";
+        private const string URL = "https://azurecommandapi.azurewebsites.net/api/commands/";
 
         public HomeController(ILogger<HomeController> logger)
         {
@@ -26,7 +28,7 @@ namespace CommandRestfulAPI.MVC.Controllers
             List<Command> commandList = new List<Command>();
             using (var httpClient = new HttpClient())
             {
-                using (var response = await httpClient.GetAsync("https://localhost:44303/api/commands/"))
+                using (var response = await httpClient.GetAsync(URL))
                 {
                     string apiResponse = await response.Content.ReadAsStringAsync();
                     commandList = JsonConvert.DeserializeObject<List<Command>>(apiResponse);
@@ -40,7 +42,7 @@ namespace CommandRestfulAPI.MVC.Controllers
         {
             using (var httpClient = new HttpClient())
             {
-                using (var response = await httpClient.DeleteAsync("https://localhost:44303/api/commands/" + commandId))
+                using (var response = await httpClient.DeleteAsync(URL + commandId))
                 {
                     string apiResponse = await response.Content.ReadAsStringAsync();
                 }
