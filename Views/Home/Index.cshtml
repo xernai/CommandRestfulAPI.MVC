@@ -1,0 +1,62 @@
+﻿@model IEnumerable<CommandRestfulAPI.MVC.Models.Command>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Howto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Platform)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Commandline)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Howto)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Platform)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Commandline)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                    @* @Html.ActionLink("Deñte", "DeleteCommand", new { commandId = item.Id })*@
+                    @* <a asp-action="DeleteCommand" asp-route-id="@item.Id">Delete</a>*@
+
+                </td>
+                <td>
+                    <form asp-action="DeleteCommand" method="post">
+                        <input type="hidden" value="@item.Id" name="commandId" id="commandId" />
+                        <input type="image" src="~/icon/close.png" />
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
